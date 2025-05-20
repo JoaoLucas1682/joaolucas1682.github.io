@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- js quebra se eu minificar, portanto só o css vai -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+body{margin:0;padding:0;font-family:"Comic Sans MS","Comic Sans","Chalkboard SE", "Comic Neue",cursive}
+    </style>
+</head>
+<body>
+carregando...
+    <script>
+        function atualizarContador() {
+            const agora = new Date();
+            const anoNovo = new Date(agora.getFullYear() + 1, 0, 1);
+            const diferenca = anoNovo - agora;
+
+            const dia = String(agora.getDate()).padStart(2, '0');
+            const mes = String(agora.getMonth() + 1).padStart(2, '0');
+            const ano = agora.getFullYear();
+            const horas = String(agora.getHours()).padStart(2, '0');
+            const minutos = String(agora.getMinutes()).padStart(2, '0');
+            const segundos = String(agora.getSeconds()).padStart(2, '0');
+            const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+
+            if (diferenca <= 0) {
+                document.body.innerHTML = `🎆 Feliz Ano Novo! 🎉 - ${dataHoraFormatada}`;
+                return;
+            }
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horasRestantes = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutosRestantes = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundosRestantes = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            document.body.innerHTML = `${dias}d:${horasRestantes}h:${minutosRestantes}m:${segundosRestantes}s - ${dataHoraFormatada}`;
+        }
+
+        setInterval(atualizarContador, 1000);
+    </script>
+</body>
+</html>

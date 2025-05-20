@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Feliz Ano Novo!</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;text-align:center;background-color:#000;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;overflow:hidden}h1{font-size:45px}#contador{font-size:70px;font-weight:700}#dataAtual{font-size:25px;margin-top:15px}.feliz-ano-novo::after{content:"🎆 Feliz Ano Novo! 🎉";font-size:55px;font-weight:700;color:gold}@media (max-width:600px){h1{font-size:35px}#contador{font-size:40px}#dataAtual{font-size:22px}.feliz-ano-novo::after{font-size:45px}}@media (max-width:900px){h1{font-size:40px}#contador{font-size:45px}#dataAtual{font-size:24px}.feliz-ano-novo::after{font-size:50px}}</style></head><body><h1>🚀 Contagem Regressiva para o Ano Novo! 🎉</h1><div id="contador">carregando...</div><div id="dataAtual">carregando...</div><div id="proximoano">carregando...</div><script>function atualizarContador() {
+            const agora = new Date();
+            const anoNovo = new Date(agora.getFullYear() + 1, 0, 1);
+            const anoNovosimples = agora.getFullYear() + 1;
+            const diferenca = anoNovo - agora;
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            const contador = document.getElementById("contador");
+            const proxano = document.getElementById("proximoano");
+            proxano.innerHTML = `Ano Novo: ${anoNovosimples}`;
+
+            if (diferenca <= 0) {
+                contador.innerHTML = "";
+                contador.classList.add("feliz-ano-novo");
+                document.getElementById("dataAtual").innerHTML = `📅 Hoje: ${agora.toLocaleDateString()} ⏳ ${agora.toLocaleTimeString()}`;
+            } else {
+                contador.innerHTML = `${dias}d:${horas}h:${minutos}m:${segundos}s`;
+                document.getElementById("dataAtual").innerHTML = `📅 Hoje: ${agora.toLocaleDateString()} ⏳ ${agora.toLocaleTimeString()}`;
+            }
+        }
+
+        setInterval(atualizarContador, 1000);</script></body></html>
