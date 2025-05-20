@@ -13,7 +13,7 @@ Para isto, siga estes passos:
 5. Coloque estas configurações: 
 
 URL: https://anonovo.pages.dev/widget.html
-Alternativa: em andamento
+Alternativa: https://joaolucas1682.github.io/projetos/anonovo/widget.html
 
 largura: 300
 altura: 20
