@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprodutor de Vídeo HLS</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+    <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <h2 class="text-center mb-4">Reprodutor de Vídeo HLS</h2>
+
+        <!-- Input para URL do vídeo -->
+        <div class="mb-3 w-50">
+            <input type="text" id="videoUrl" class="form-control text-center" placeholder="Insira a URL do vídeo HLS">
+            <button class="btn btn-primary mt-2 w-100" onclick="loadVideo()">Carregar Vídeo</button>
+        </div>
+
+        <!-- Player de vídeo -->
+        <video id="videoPlayer" controls width="640" height="360" autoplay class="border border-light rounded"></video>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- HLS.js -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
+
+    <script>
+function iniciarPlayer(){var e=document.getElementById("videoPlayer");if(Hls.isSupported()){var n=new Hls;n.attachMedia(e),window.hlsInstance=n}}function loadVideo(){var e=document.getElementById("videoUrl").value,n=document.getElementById("videoPlayer");e&&(Hls.isSupported()?(window.hlsInstance.detachMedia(),window.hlsInstance.loadSource(e),window.hlsInstance.attachMedia(n),n.play()):(n.src=e,n.play()))}window.onload=function(){iniciarPlayer()};
+    </script>
+
+<p class="text-center">ATENÇÃO: O vídeo só vai ser reproduzido se:<br/>
+O conteúdo não ter algum header de bloqueio</p>
+</body>
+</html>
