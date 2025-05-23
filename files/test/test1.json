@@ -1,0 +1,34 @@
+{
+    "Hello": "World",
+    "This is a": "test json file",
+    "This is a nested object": {
+        "key1": "value1",
+        "key2": "value2",
+        "subObject": {
+            "subKey1": "subValue1",
+            "subKey2": "subValue2",
+            "moreNested": {
+                "deepKey1": "deepValue1",
+                "deepKey2": "deepValue2"
+            }
+        }
+    },
+    "array": [
+        {
+            "item1": "value1",
+            "item2": "value2"
+        },
+        {
+            "item3": "value3",
+            "item4": "value4"
+        }
+    ],
+    "array with numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "JSON file by": "joaolucas1682.github.io"
+}
