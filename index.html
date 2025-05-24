@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt">
+	<!--joaolucas1682.github.io-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #222; color: white; padding: 20px; }
-        h1 { color: #00ff99; }
-        .container { max-width: 600px; margin: auto; background: #333; padding: 20px; border-radius: 10px; }
+        body { font-family: "Segoe UI", Arial, sans-serif; text-align: center; background: #222; color: white; padding: 20px; }
+        .container { max-width: 600px; margin: auto;    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.5);padding: 20px; border-radius: 1em; transition:.35s;
+		
+		    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+           ;
+		}
         .projects { margin-top: 20px; }
-        a { color: #00ff99; text-decoration: none; font-size: 25px; }
-        a:hover { text-decoration: underline; }
+        a { color: #00ff99; text-decoration: none; font-size: 25px;  transition: .35s; text-shadow: 2px 2px 6px #8A8A8A;}
+        a:hover:not([c]) { text-decoration: underline; transform: rotate(2deg); display: inline-block; }
+		        a[c]:hover { text-decoration: underline; transform: rotate(-2deg); display: inline-block; }
+		
+
         ul { list-style-type: none }
 			.css-reflect {
-	-webkit-box-reflect: below -22px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(30%, transparent), to(rgba(255, 255, 255, 0.75)));
+	-webkit-box-reflect: below -21.3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(30%, transparent), to(rgba(255, 255, 255, 0.75)));
 	font-size: 42px;
 	font-family: "Segoe UI", "Arial Black", Gadget, sans-serif;
 	color: #EEE;
@@ -26,24 +40,46 @@
 	-khtml-user-select: none;
 	cursor: text;
 }
-    </style>
+[a]{text-decoration:underline;} :focus{outline: .5px dotted #fff;     box-shadow: 0 0 0 5px red;
+} 
+
+.gbg {
+  background: linear-gradient(104deg,#00ffc7,#052db5,#0038ff,#18a6db);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+p,h2[cca] {text-shadow: 2px 3px 2px #8A8A8A;}
+b[ac] {text-shadow:none!important;}/*joaolucas1682.github.io*/
+  </style>
 </head>
-<body>
+<body class="gbg">
 
     <div class="css-reflect" unselectable="true" >Bem-vindo!</div>
 
     <div class="container">
-        <p>Eu me chamo <b>João Lucas</b>, e sou só uma pessoa fazendo alguns projetos que acho bom em compartilhar.</p>
-        <p>GitHub: <a href="https://github.com/joaolucas1682" target="_blank">@JoaoLucas1682</a></p>
+        <p>Eu me chamo <b a ac>João Lucas</b>, e sou só uma pessoa fazendo alguns projetos que acho bom em compartilhar.</p>
+        <p>GitHub: <a href="https://github.com/joaolucas1682" target="_blank" c>@JoaoLucas1682</a></p>
     </div>
 
-    <div class="projects">
-        <h2>📂 Projetos</h2>
+    <div class="projects container">
+        <h2 cca>📂 Projetos</h2>
         <ul>
-            <li><a href="projetos/joaonetwork/index.html" target="_blank">(v1) JNET (JoaoNETwork)</a></li>
-            <li><a href="an.html" target="_blank">O Ano Novo</a></li>
-            <li><a href="projetos/reprodutorhls/index.html" target="_blank">(v1) Reprodutor HLS.js</a></li>
+            <li><a href="projetos/joaonetwork/index.html" target="_blank">(v1) JNET (JoaoNETwork)</a></li><br/>
+            <li><a href="an.html" target="_blank" c>O Ano Novo</a></li><br/>
+            <li><a href="projetos/reprodutorhls/index.html" target="_blank">(v1) Reprodutor HLS.js</a></li><br>
         </ul>
     </div>
 </body>
-</html>
+</html>	<!--joaolucas1682.github.io-->
