@@ -1,86 +1,172 @@
 <!DOCTYPE html>
-<html lang="pt">
-	<!--joaolucas1682.github.io-->
-<head>
-	<meta name="google-site-verification" content="2l_UH-tVu9bqp8dVOybiIJoOVj-f7dSLShIyWpswx9M" />
+<html lang="pt-br">
+  <!--joaolucas1682.github.io-->
+  <head>
+    <meta name="google-site-verification" content="2l_UH-tVu9bqp8dVOybiIJoOVj-f7dSLShIyWpswx9M" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="title" content="JoaoLD Site">
+<meta name="description" content="Este é o meu site pessoal e tenho alguns projetos simples que pode ajudar">
+<meta name="keywords" content="joaoldsite, sitepessoal">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="pt-BR">
+<meta name="revisit-after" content="14 days">
+<meta name="author" content="João Lucas D.">
+<link rel="canonical" href="https://joaolucas1682.github.io"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; "/>
+<title>JoaoLD Site</title>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicons/1/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="/favicons/1/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicons/1/favicon-16x16.png">
     <style>
-        body { font-family: "Segoe UI", Arial, sans-serif; text-align: center; background: #222; color: white; padding: 20px; }
-        .container { max-width: 600px; margin: auto;    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(5px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.5);padding: 20px; border-radius: 1em; transition:.35s;
-		
-		    box-shadow:
-      0 1px 1px hsl(0deg 0% 0% / 0.075),
-      0 2px 2px hsl(0deg 0% 0% / 0.075),
-      0 4px 4px hsl(0deg 0% 0% / 0.075),
-      0 8px 8px hsl(0deg 0% 0% / 0.075),
-      0 16px 16px hsl(0deg 0% 0% / 0.075)
-           ;
-		}
-        .projects { margin-top: 20px; }
-        a { color: #00ff99; text-decoration: none; font-size: 25px;  transition: .35s; text-shadow: 2px 2px 6px #8A8A8A;}
-        a:hover:not([c]) { text-decoration: underline; transform: rotate(2deg); display: inline-block; }
-		        a[c]:hover { text-decoration: underline; transform: rotate(-2deg); display: inline-block; }
-		
-
-        ul { list-style-type: none }
-			.css-reflect {
-	-webkit-box-reflect: below -21.3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(30%, transparent), to(rgba(255, 255, 255, 0.75)));
-	font-size: 42px;
-	font-family: "Segoe UI", "Arial Black", Gadget, sans-serif;
-	color: #EEE;
-	margin-bottom: 20px;
-	font-weight: bold;
-	font-style: italic;
-    user-select: none;
-	-ms-user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	cursor: text;
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        text-align: center;
+        background: #222;
+        color: white;
+        padding: 20px;
+		cursor: url("/files/3d.cur"), auto; 
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(5px) saturate(180%);
+        background-color: rgba(17, 25, 40, 0.5);
+        padding: 20px;
+        border-radius: 1em;
+        transition: 0.35s;
+        box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+          0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+          0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+      }
+      .projects {
+        margin-top: 20px;
+      }
+      a {
+        color: #00ff99;
+        text-decoration: none;
+        font-size: 25px;
+        transition: 0.35s;
+        text-shadow: 2px 2px 6px #8a8a8a;
+      }
+      a:hover:not([c]) {
+        text-decoration: underline;
+        transform: rotate(2deg);
+        display: inline-block;
+      }
+      a[c]:hover {
+        text-decoration: underline;
+        transform: rotate(-2deg);
+        display: inline-block;
+      }
+      ul {
+        list-style-type: none;
+      }
+      .css-reflect {
+        -webkit-box-reflect: below -21.3px -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          from(transparent),
+          color-stop(30%, transparent),
+          to(rgba(255, 255, 255, 0.75))
+        );
+        font-size: 42px;
+        font-family: "Segoe UI", "Arial Black", Gadget, sans-serif;
+        color: #eee;
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-style: italic;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        cursor: text;
+      }
+      [a] {
+        text-decoration: underline;
+      }
+      :focus {
+        outline: 0.5px dotted #fff;
+        box-shadow: 0 0 0 5px red;
+      }
+      .gbg {
+        background: linear-gradient(104deg, #00ffc7, #052db5, #0038ff, #18a6db);
+        background-size: 240% 240%;
+        animation: gradient-animation 24s ease infinite;
+      }
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      p,
+      h2[cca] {
+        text-shadow: 2px 3px 2px #8a8a8a;
+      }
+      b[ac] {
+        text-shadow: none !important;
+      }
+      /*joaolucas1682.github.io*/
+    </style>
+	<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "João Lucas D.",
+  "url": "https://joaolucas1682.github.io",
+  "description": "Este é o meu site pessoal onde compartilho projetos simples para o mundo inteiro acessar",
+  "sameAs": [
+    "https://github.com/joaolucas1682"
+  ]
 }
-[a]{text-decoration:underline;} :focus{outline: .5px dotted #fff;     box-shadow: 0 0 0 5px red;
-} 
+</script>
 
-.gbg {
-  background: linear-gradient(104deg,#00ffc7,#052db5,#0038ff,#18a6db);
-  background-size: 240% 240%;
-  animation: gradient-animation 24s ease infinite;
-}
-
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-p,h2[cca] {text-shadow: 2px 3px 2px #8A8A8A;}
-b[ac] {text-shadow:none!important;}/*joaolucas1682.github.io*/
-  </style>
-</head>
-<body class="gbg">
-
-    <div class="css-reflect" unselectable="true" >Bem-vindo!</div>
-
+  </head>
+  <body class="gbg">
+    <div class="css-reflect" unselectable="true" >Bem-vindo!
+    </div>
     <div class="container">
-        <p>Eu me chamo <b a ac>João Lucas</b>, e sou só uma pessoa fazendo alguns projetos que acho bom em compartilhar.</p>
-        <p>GitHub: <a href="https://github.com/joaolucas1682" target="_blank" c>@JoaoLucas1682</a></p>
+      <p>Eu me chamo 
+        <b a ac>João Lucas
+        </b>, e sou só uma pessoa fazendo alguns projetos que acho bom em compartilhar.
+      </p>
+      <p>GitHub: 
+        <a href="https://github.com/joaolucas1682" target="_blank" c>@JoaoLucas1682
+        </a>
+      </p>
     </div>
-
     <div class="projects container">
-        <h2 cca>📂 Projetos</h2>
-        <ul>
-            <li><a href="projetos/joaonetwork/index.html" target="_blank">(v1) JNET (JoaoNETwork)</a></li><br/>
-            <li><a href="an.html" target="_blank" c>O Ano Novo</a></li><br/>
-            <li><a href="projetos/reprodutorhls/index.html" target="_blank">(v1) Reprodutor HLS.js</a></li><br>
-        </ul>
+      <h2 cca>📂 Projetos
+      </h2>
+      <ul>
+        <li>
+          <a href="projetos/joaonetwork/index.html" target="_blank">(v1) JNET (JoaoNETwork)
+          </a>
+        </li>
+        <br/>
+        <li>
+          <a href="an.html" target="_blank" c>O Ano Novo
+          </a>
+        </li>
+        <br/>
+        <li>
+          <a href="projetos/reprodutorhls/index.html" target="_blank">(v1) Reprodutor HLS.js
+          </a>
+        </li>
+        <br>
+      </ul>
     </div>
-</body>
-</html>	<!--joaolucas1682.github.io-->
+	<p>Site by João Lucas D. (BR)</p>
+  </body>
+</html>	
+<!--joaolucas1682.github.io-->
