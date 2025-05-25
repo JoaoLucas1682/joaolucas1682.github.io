@@ -6,3 +6,6 @@ Disallow: /files/
 
 User-agent: ia-archiver
 Allow: /files/
+
+
+Sitemap: /sitemap.xml
