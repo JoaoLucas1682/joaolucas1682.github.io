@@ -1,0 +1,5 @@
+# robots.txt
+# As regras definidas pros motores de busca... evitando lixo na pesquisa, como o files/
+
+User-agent: *
+Disallow: /files/
