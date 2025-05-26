@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LongTerm Notepad</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/loader.js"></script>
+    <style>
+body{font-family: Arial, sans-serif;margin: 20px}#editorContainer{position: relative;width: 80%;height: 400px;margin: auto;border: 2px solid #ccc;resize: both;overflow: hidden;border-radius: 8px}#editor{width: 100%;height: 100%}#statusBar{margin-top: 10px;font-size: 14px}button{padding: 10px 15px;margin-top: 10px;cursor: pointer}
+    </style>
+</head><!---->
+<body><!---->
+    <h2>LongTerm Notepad</h2><!---->
+    <p id="lastModified">Última modificação: Nunca</p><!---->
+
+    <div id="editorContainer"><!---->
+        <div id="editor"><!--monaco here!--></div><!---->
+    </div>
+
+    <p id="statusBar">Ln 1, Col 1</p>
+
+    <button onclick="downloadNota()">📥 Baixar como TXT</button>
+    <button onclick="limparNotas()">🗑️ Limpar Notas</button>
+
+    <script>
+let editor;function atualizarUltimaModificacao(){const e=(new Date).toLocaleString();document.getElementById("lastModified").innerText=`Última modificação: ${e}`,localStorage.setItem("notepadLM",e)}function limparNotas(){localStorage.removeItem("notepadConteudo"),localStorage.removeItem("notepadLM"),editor.setValue(""),document.getElementById("lastModified").innerText="Última modificação: Nunca"}function downloadNota(){const e=editor.getValue(),t=new Blob([e],{type:"text/plain"}),o=document.createElement("a");o.href=URL.createObjectURL(t),o.download="notepad.txt",o.click()}function ajustarMonaco(){editor.layout()}require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs"}}),require(["vs/editor/editor.main"],(function(){editor=monaco.editor.create(document.getElementById("editor"),{value:localStorage.getItem("notepadConteudo")||"Digite aqui suas notas",language:"plaintext",automaticLayout:!0}),document.getElementById("lastModified").innerText=`Última modificação: ${localStorage.getItem("notepadLM")||"Nunca"}`,editor.onDidChangeModelContent((()=>{localStorage.setItem("notepadConteudo",editor.getValue()),atualizarUltimaModificacao()})),editor.onDidChangeCursorPosition((e=>{const t=e.position;document.getElementById("statusBar").innerText=`Ln ${t.lineNumber}, Col ${t.column}`})),window.addEventListener("resize",ajustarMonaco)}));
+    </script>
+    <p>Atenção: se o editor estar vazio, a próxima vez que você entrar nesta página o editor vai substituir o vazio por "Digite aqui suas notas"</p>
+    <p>Pagina by <a href="/">JoaoLucas1682</a>
+</body>
+</html>
