@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar IP</title>
+    <style>
+body{font-family:"Segoe UI",Arial,sans-serif;text-align:center;margin-top:50px}#ip{font-size:24px;font-weight:700;user-select:none}#ip.e{color:#fff0;text-shadow:0 0 12px rgba(0,0,0,.5)}.visible{color:#000!important;text-shadow:none}button{padding:10px 20px;font-size:16px;margin-top:10px;cursor:pointer}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="title" content="JoaoLD - Qual é meu IP">
+    <meta name="description" content="Você pode ver seu IP aqui! É só vim aqui, copiar e pronto!">
+    <meta name="keywords" content="qualemeuip, meuip, verip, joaoldsite">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="pt-BR">
+    <meta name="revisit-after" content="14 days">
+    <meta name="author" content="João Lucas D.">
+    <link rel="canonical" href="https://joaolucas1682.github.io/projetos/qualemeuip"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src api64.ipify.org "/>
+    <title>JoaoLD - Qual é meu IP?
+    </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/1/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/1/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/1/favicon-16x16.png">
+</head>
+<body>
+    <h1>Seu IP</h1>
+
+    <p id="ip">Carregando</p>
+    <button onclick="toggleIP()">Mostrar/Esconder IP</button>
+    <button onclick="copyIP()">Copiar IP</button>
+    <script>
+function getIP(){fetch("https://api64.ipify.org?format=json").then((t=>t.json())).then((t=>{document.getElementById("ip").classList.toggle("e"),document.getElementById("ip").textContent=t.ip})).catch((t=>{console.log("Erro ao obter IP:",t),document.getElementById("ip").textContent="Erro ao obter IP"}))}function toggleIP(){document.getElementById("ip").classList.toggle("visible")}getIP();
+//2
+function copyIP(){const t=document.getElementById("ip").textContent;navigator.clipboard.writeText(t).then((()=>{alert("IP copiado para a área de transferência!")})).catch((t=>{console.log("Erro ao copiar IP:",t)}))}
+    </script>
+    
+    <p style="color: red; font-weight: bold; text-align: center;">
+    ⚠️ Atenção! Este IP pode ser público e visível para sites e serviços que você acessa.<br>
+    Se o seu endereço IP for vazado, scanners e pessoas mal-intencionadas podem te atacar e escanear vulnerabilidades.<br>
+    Se você estiver gravando ou transmitindo ao vivo, é recomendável ocultar ou substituir essa informação com outra sobreposição para evitar exposição pública desnecessária.<br/>
+    Além disto, o IP da sua máquina <strong>pode revelar a sua localização</strong>!<br/>
+    <a href="https://www.omeuip.com/protegendo-se-no-mundo-digital-a-importancia-do-ip-na-seguranca-online-440.html" style="font-size: 25px;">Saiba mais</a>
+</p>
+
+<p>Página by <a href="/">JoaoLucas1682</a></p>
+
+</body>
+</html><textarea hidden style="width:0;display:none!important" joaolucas1682-indicative>page by joaolucas1682.github.io</textarea>
