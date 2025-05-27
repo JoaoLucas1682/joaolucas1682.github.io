@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Temporary Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs/loader.min.js"></script>
+    <style>
+[ac],html{height:100%}[ac]{font-family:Arial,sans-serif;text-align:center;margin:20px;background-color:#f8f8f8}button{padding:10px;font-size:16px;margin-top:10px;border-radius:5px;background:#ff4747;color:#fff;border:none;cursor:pointer}button:hover{background:#c00}#editor{width:80%;margin:auto;border:1px solid #ccc;border-radius:4px;height:70%}
+    </style>
+</head>
+<body ac>
+    <h2>Temp<span style="color:grey">orary</span> Notes</h2>
+    <p>Escreva suas notas temporárias abaixo. Elas não são salvas e desaparecerão ao recarregar a página.</p>
+    <div id="editor" style="text-align:left;
+    "></div>
+    <button onclick="limparNotas()">Limpar Nota</button>
+
+    <script>
+function limparNotas(){window.editor.setValue("")}require.config({paths:{vs:"https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.38.0/min/vs"}}),require(["vs/editor/editor.main"],(function(){window.editor=monaco.editor.create(document.getElementById("editor"),{value:"",language:"plaintext",theme:"vs-dark"})}));
+window.addEventListener("resize", function () {
+    if (window.editor) {
+        window.editor.layout();
+    }
+});
+
+    </script>
+    
+    <p>Página by <a href="/">JoaoLucas1682</a></p>
+</body>
+</html>
