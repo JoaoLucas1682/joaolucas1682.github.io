@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criptografia XOR + Subtração</title>
+    <style>
+body{font-family:Arial,sans-serif;text-align:center;margin:30px;background-color:#222;color:#fff}button,input{margin:10px;padding:10px;width:80%;font-size:16px;border-radius:5px}button{background:#008cba;color:#fff;border:none;cursor:pointer}button:hover{background:#005f73}p{font-size:18px;font-weight:700;margin-top:20px}
+    </style>
+</head>
+<body>
+    <h2>Criptografia XOR + Subtração</h2>
+    <input type="text" id="texto" placeholder="Texto ou código criptografado">
+    <input type="text" id="chave" placeholder="Chave de criptografia">
+    <button onclick="criptografar()">Criptografar</button>
+    <button onclick="descriptografar()">Descriptografar</button>
+    <p id="resultado">Resultado aparecerá aqui...</p>
+
+    <script>
+function criptografar(){let e=document.getElementById("texto").value,t=document.getElementById("chave").value;if(!e||!t)return alert("Digite um texto e uma chave!");let n=new Uint8Array(e.length);for(let r=0;r<e.length;r++)n[r]=(e.charCodeAt(r)^t.charCodeAt(r%t.length))-t.length;document.getElementById("resultado").innerText=`Uint8Array Criptografado: ${n.join(", ")}`}function descriptografar(){let e=document.getElementById("chave").value,t=document.getElementById("texto").value.split(",").map((e=>parseInt(e)));if(!e||0===t.length)return alert("Digite uma chave válida e um texto criptografado!");let n="";for(let r=0;r<t.length;r++)n+=String.fromCharCode(t[r]+e.length^e.charCodeAt(r%e.length));document.getElementById("resultado").innerText=`Texto Original: "${n}"`}
+    </script>
+</body>
+</html>
