@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo desde 1970-01-01</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #tempo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tempo desde 1970-01-01</h1>
+    <p id="tempo">Carregando...</p>
+    <p id="unix">Carregando...</p>
+
+    <script>
+function calcularTempoDesde1970(){let e=Math.floor(Date.now()/1e3),o=e-0,t=Math.floor(o/31536e3),n=Math.floor(o%31536e3/86400),a=Math.floor(o%86400/3600),l=Math.floor(o%3600/60),r=o%60;document.getElementById("tempo").innerText=`${t} ano(s), ${n} dia(s), ${a} hora(s), ${l} minuto(s) e ${r} segundo(s)`,document.getElementById("unix").innerText=`Tempo Unix: ${e}`}setInterval(calcularTempoDesde1970,500);
+    </script>
+
+</body>
+</html>
