@@ -1,4 +1,4 @@
-anonovo.pages.dev | joaolucas1682.github.io
+joaolucas1682.github.io
 
 -
 
@@ -12,8 +12,7 @@ Para isto, siga estes passos:
 4. Nomeie ela de alguma coisa que seja fácil de lembrar (exemplo: anonovo) e não esqueça de deixar a fonte visível
 5. Coloque estas configurações: 
 
-URL: https://anonovo.pages.dev/widget.html
-Alternativa: https://joaolucas1682.github.io/projetos/anonovo/widget.html
+URL: https://joaolucas1682.github.io/projetos/anonovo/widget.html
 
 largura: 300
 altura: 20
