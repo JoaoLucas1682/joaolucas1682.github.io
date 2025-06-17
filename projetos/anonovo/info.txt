@@ -14,7 +14,7 @@ Para isto, siga estes passos:
 
 URL: https://joaolucas1682.github.io/projetos/anonovo/widget.html
 
-largura: 300
+largura: 500
 altura: 20
 
 css:
