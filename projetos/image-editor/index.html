@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #121212;
+        color: #eee;
+      }
+      input, button {
+        background: #222;
+        color: #eee;
+        border: 1px solid #555;
+      }
+    }
+
+    canvas { margin-top: 10px; max-width: 100%; border: 1px solid #ccc; }
+    .slider-group { margin: 10px 0; }
+    label { display: block; margin-bottom: 4px; font-size: 14px; }
+    input[type="range"] { width: 200px; }
+    button { margin-top: 10px; padding: 6px 12px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <input type="file" id="upload" accept="image/*"><br>
+  <canvas id="canvas"></canvas><br>
+
+  <div class="slider-group">
+    <label for="br">Brilho</label>
+    <input type="range" id="br" min="0" max="200" value="100">
+  </div>
+
+  <div class="slider-group">
+    <label for="ct">Contraste</label>
+    <input type="range" id="ct" min="0" max="200" value="100">
+  </div>
+
+  <div class="slider-group">
+    <label for="st">Saturação</label>
+    <input type="range" id="st" min="0" max="200" value="100">
+  </div>
+
+  <button onclick="save()">Salvar</button>
+
+  <script>
+    const c = document.getElementById("canvas"), ctx = c.getContext("2d");
+    const img = new Image(), up = document.getElementById("upload");
+    const br = document.getElementById("br"), ct = document.getElementById("ct"), st = document.getElementById("st");
+
+    up.onchange = e => {
+      const r = new FileReader();
+      r.onload = ev => img.src = ev.target.result;
+      r.readAsDataURL(e.target.files[0]);
+    };
+
+    img.onload = () => {
+      c.width = img.width;
+      c.height = img.height;
+      apply();
+    };
+
+    [br, ct, st].forEach(i => i.oninput = apply);
+
+    function apply() {
+      ctx.filter = `brightness(${br.value}%) contrast(${ct.value}%) saturate(${st.value}%)`;
+      ctx.drawImage(img, 0, 0);
+    }
+
+    function save() {
+      const a = document.createElement("a");
+      a.href = c.toDataURL();
+      a.download = "image.png";
+      a.click();
+    }
+  </script>
+
+</body>
+</html>
