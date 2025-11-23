@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Teste window.opener</title>
+  <script>
+    function verify() {
+      if (window.opener) {
+        try {
+          document.getElementById("result").textContent =
+            "Esta janela TEM window.opener (foi aberta por outra). URL: " +
+            window.opener.location.href;
+        } catch (err) {
+          document.getElementById("result").textContent =
+            "Esta janela TEM window.opener, mas não é possível acessar a URL (origem diferente).";
+        }
+      } else {
+        document.getElementById("result").textContent =
+          "Esta janela NÃO tem window.opener (foi aberta diretamente).";
+      }
+    }
+    window.onload = verify;
+  </script>
+</head>
+<body>
+  <h2>Teste de window.opener</h2>
+  <p id="result"></p>
+</body>
+</html>
