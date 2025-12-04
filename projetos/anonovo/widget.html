@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <!-- js quebra se eu minificar, portanto só o css vai -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem Regressiva</title>
-    <style>
-body{margin:0;padding:0;font-family:"Comic Sans MS","Comic Sans","Chalkboard SE", "Comic Neue",cursive}
-    </style>
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
             <link rel="icon" type="image/png" sizes="32x32" href="/favicons/1/favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="96x96" href="/favicons/1/favicon-96x96.png">
             <link rel="icon" type="image/png" sizes="16x16" href="/favicons/1/favicon-16x16.png">
-</head>
-<body>
-carregando...
-    <script>
-        function atualizarContador() {
-            const agora = new Date();
-            const anoNovo = new Date(agora.getFullYear() + 1, 0, 1);
-            const diferenca = anoNovo - agora;
-
-            const dia = String(agora.getDate()).padStart(2, '0');
-            const mes = String(agora.getMonth() + 1).padStart(2, '0');
-            const ano = agora.getFullYear();
-            const horas = String(agora.getHours()).padStart(2, '0');
-            const minutos = String(agora.getMinutes()).padStart(2, '0');
-            const segundos = String(agora.getSeconds()).padStart(2, '0');
-            const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
-
-            if (diferenca <= 0) {
-                document.body.innerHTML = `🎆 Feliz Ano Novo! 🎉 - ${dataHoraFormatada}`;
-                return;
-            }
-
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horasRestantes = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutosRestantes = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundosRestantes = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            document.body.innerHTML = `${dias}d:${horasRestantes}h:${minutosRestantes}m:${segundosRestantes}s - ${dataHoraFormatada}`;
-        }
-
-        setInterval(atualizarContador, 1000);
-    </script>
-    <script src="/files/joaodbg.js" defer style="width:0"></script>
-</body>
-</html>
+<title>Countdown 4 OBS</title><style>body{margin:0;padding:0;background:0 0;color:#fff;font-size:120%}.countdown{font-weight:700}</style></head><body><div class="countdown">Carregando...</div><script>const params=new URLSearchParams(window.location.search),mode=params.get("mode")||"tick",fontFamily=params.get("font")||"Segoe UI, Arial, sans-serif";function updateCountdown(){const t=new Date,e=new Date(t.getFullYear()+1,0,1)-t,o=`${String(t.getDate()).padStart(2,"0")}/${String(t.getMonth()+1).padStart(2,"0")}/${t.getFullYear()} ${String(t.getHours()).padStart(2,"0")}:${String(t.getMinutes()).padStart(2,"0")}:${String(t.getSeconds()).padStart(2,"0")}`,n=document.querySelector(".countdown");if(e<=0)return void(n.innerHTML=`🎆 Feliz Ano Novo! 🎉 - ${o}`);const a=Math.floor(e/864e5),r=Math.floor(e%864e5/36e5),i=Math.floor(e%36e5/6e4),d=Math.floor(e%6e4/1e3);n.innerHTML=`${a}d:${r}h:${i}m:${d}s - ${o}`}function tick(){updateCountdown();const t=1e3-(new Date).getMilliseconds();setTimeout(tick,t)}document.body.style.fontFamily=fontFamily,"tick"===mode?tick():(updateCountdown(),setInterval(updateCountdown,1e3));const fontSize=params.get("fontsize")||"120%";document.body.style.fontSize=fontSize;</script></body></html>
