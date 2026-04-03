@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SitesList
+xmlns="https://joaolucas1682.github.io/sl1682/v1/doc/html" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://joaolucas1682.github.io/sl1682/v1/doc/html https://joaolucas1682.github.io/sl1682/v1/schema/SLSchema.xsd">
+  <Metadata>
+  <SLVersion>v1</SLVersion>
+  <DateUpdated>2026-04-02</DateUpdated>
+  <OrgInfo>
+    <Maintainer>BestMaintainer123 </Maintainer>
+    <Organization>AnExpert</Organization>
+    <OrgSite>https://the.expert.sitex/</OrgSite>
+  </OrgInfo>
+  </Metadata>
+<Site>
+<IsRevoked>1</IsRevoked>
+<Reason>1</Reason>
+<URL>https://badsite.com</URL>
+<TimestampAdded>2067-06-07T06:07:00</TimestampAdded>
+</Site>
+</SitesList>

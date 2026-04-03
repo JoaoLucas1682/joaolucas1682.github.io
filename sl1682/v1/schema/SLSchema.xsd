@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://joaolucas1682.github.io/sl1682/v1/spec/html"
+    xmlns="https://joaolucas1682.github.io/sl1682/v1/spec/html" 
+elementFormDefault="qualified">
+<xs:annotation>
+  <xs:documentation>
+    XSD Schema for SitesList version 1
+    2026-04-02 | joaolucas1682.github.io
+  </xs:documentation>
+</xs:annotation>
+
+    <xs:element name="SitesList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Metadata">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="SLVersion" type="xs:string" fixed="v1"/>
+                            <xs:element name="DateUpdated" type="xs:date"/>
+                            <xs:element name="OrgInfo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Maintainer" type="xs:string"/>
+                                        <xs:element name="Organization" type="xs:string"/>
+                                        <xs:element name="OrgSite" type="xs:anyURI"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:any minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:anyAttribute/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Site">
+                <xs:complexType>
+                  <xs:sequence>
+                   <xs:element name="IsRevoked">
+                   <xs:simpleType>
+                   <xs:restriction base="xs:integer">
+                         <xs:minInclusive value="0"/>
+                         <xs:maxInclusive value="1"/>
+                   </xs:restriction>
+                   </xs:simpleType>
+                   </xs:element>
+                   <xs:element name="Reason">
+                   <xs:simpleType>
+                   <xs:restriction base="xs:integer">
+                         <xs:minInclusive value="0"/>
+                         <xs:maxInclusive value="21"/>
+                   </xs:restriction>
+                   </xs:simpleType>
+                   </xs:element>
+                  <xs:element name="URL" type="xs:anyURI"/>
+                  <xs:element name="TimestampAdded" type="xs:dateTime"/>
+                  <xs:any minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:anyAttribute/>
+                </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

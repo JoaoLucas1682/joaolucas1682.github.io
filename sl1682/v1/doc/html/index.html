@@ -1,0 +1,146 @@
+<!-- originalmente, o documento foi criado em markdown e convertido para html.
+     é por isso que há essa bagunça de tags e o "hljs" ali.-->
+<!doctype html><html><head><style>
+/*joaolucas1682.github.io*/
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html,body {
+  background: white;
+  color: black;
+font-family:system-ui,"Segoe UI","Roboto","Arial",sans-serif;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,body {
+    background: #121212;
+    color: #eee;
+  }
+a{
+color: #99ddff;
+}
+a:hover {
+color: #00aaff;
+}
+}
+
+pre{  overflow-wrap: break-word;
+  word-wrap: break-word; border: 1px solid grey; padding: 8px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+
+.hljs-meta {
+color: orange;
+}.hljs-string{color:lightblue;}
+.hljs-attr{color: #ff9933;}.hljs-tag{color: #1aff66}</style>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head><body><h1 id="-loc-first-h1">Documentação do SitesList</h1>
+<hr>
+<p>2 de abril de 2026 | Versão 1 | PT-BR
+<br>
+<br></p>
+<h2 id="introduction">Introdução</h2>
+<p>O SitesList é um <strong>protocolo XML feito para validar ou revogar sites</strong>, de forma simples e fácil de fazer. Tudo o que você precisa é um editor de código.
+Ele foi construído em 2 de abril de 2026 e finalizado em 3 de abril de 2026.</p>
+<h2 id="structure">Estrutura</h2>
+<p>Um arquivo SitesList contém duas partes principais: o cabeçalho onde identifica a organização, quem mantendo a lista, quando foi atualizado a lista e a versão do SitesList, e onde terá todas os sites válidos e os sites revogados.</p>
+<h2 id="btc">Começando o código</h2>
+<p>Para começar, insira a tag do XML e a definição do <em>Namespace</em>. Isso é o que &quot;conecta&quot; o seu arquivo às regras oficiais do SitesList v1:
+<br><br></p>
+<pre><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">SitesList</span>
+<span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://joaolucas1682.github.io/sl1682/v1/doc/html"</span> 
+<span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"https://joaolucas1682.github.io/sl1682/v1/doc/html https://joaolucas1682.github.io/sl1682/v1/schema/SLSchema.xsd"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">SitesList</span>&gt;</span>
+</pre>
+<p><br></p>
+<h3 id="metadata-tag"><code>Metadata</code></h3>
+<p>A <code>Metadata</code> é uma tag que contém as seguintes informações:</p>
+<ul>
+<li>Qual a versão do SitesList</li>
+<li>Quando a lista foi atualizada (em data)</li>
+<li>E as informações da organização, o site da organização e o mantenedor.</li>
+</ul>
+<pre><code class="lang-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">Metadata</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">SLVersion</span>&gt;</span>v1<span class="hljs-tag">&lt;/<span class="hljs-name">SLVersion</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">DateUpdated</span>&gt;</span>2026-04-02<span class="hljs-tag">&lt;/<span class="hljs-name">DateUpdated</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">OrgInfo</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Maintainer</span>&gt;</span>joaolucas1682<span class="hljs-tag">&lt;/<span class="hljs-name">Maintainer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Organization</span>&gt;</span>joaolucas1682<span class="hljs-tag">&lt;/<span class="hljs-name">Organization</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">OrgSite</span>&gt;</span>https://joaolucas1682.github.io/<span class="hljs-tag">&lt;/<span class="hljs-name">OrgSite</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">OrgInfo</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Metadata</span>&gt;</span>
+</code></pre>
+<p><code>Metadata</code> contém as seguintes tags:</p>
+<ul>
+<li>SLVersion (<em>string</em>): Indica a versão do SitesList. Como essa é a versão 1 do SitesList, essa tag <strong>deve</strong> estar como v1.</li>
+<li>DateUpdated (<em>date</em>): O dia que a lista foi atualizada. Deve seguir o padrão YYYY-MM-DD (Y = ano, M igual a mês e D igual a dia). Ex.: 2026-04-02.</li>
+<li>OrgInfo (<em>tag</em>): Informações sobre a organização e dos mantenedores. Contém:<ul>
+<li>Maintainer (<em>string</em>): Diz <em>quem</em> são os mantenedores. Ex.: se o mantenedor é o juninho1337, então o valor seria juninho1337.</li>
+<li>Organization (<em>string</em>): Diz <em>quem</em> é a organização por trás da lista. Ex.: se a organização é ExampleOrg, então o valor seria ExampleOrg.</li>
+<li>OrgSite (<em>URI</em>): Indica o site da organização. Deve ser uma URI válida.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Nota:</strong> Você pode adicionar atributos e novas tags em Metadata, se você quiser.</p>
+<h3 id="site-tag"><code>Site</code></h3>
+<p>A tag <code>Site</code> é uma tag que contém as seguintes informações:</p>
+<ul>
+<li>Se o site está revogado ou válido.</li>
+<li>A URL desse site</li>
+<li>O motivo de porque foi revogado</li>
+<li>E quando foi adicionado à lista.</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Site</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">IsRevoked</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">IsRevoked</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Reason</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">Reason</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">URL</span>&gt;</span>https://badsite.com<span class="hljs-tag">&lt;/<span class="hljs-name">URL</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">TimestampAdded</span>&gt;</span>2067-06-07T06:07:00<span class="hljs-tag">&lt;/<span class="hljs-name">TimestampAdded</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Site</span>&gt;</span>
+</code></pre>
+<p><code>Site</code> contém as seguintes tags:</p>
+<ul>
+<li>IsRevoked (<em>number</em>): Um número <strong>inteiro</strong> que vai de 0 a 1. 0 significa não revogado e 1 significa que foi revogado</li>
+<li>Reason (<em>number</em>): Um número <strong>inteiro</strong> que vai de 0 a 21. Cada número tem um motivo especificado (veja a <a href="#lista-de-motivos">lista</a>), e o 21 é usado para quando o site é válido. <strong>Use apenas o 21 se IsRevoked for igual a 0</strong>. Ex.: 8 (Phishing).</li>
+<li>URL (<em>URI</em>): Indica a URL do site. Ex.: <a href="https://badsite.com">https://badsite.com</a> (site ruim) ou <a href="https://example.com">https://example.com</a> (site bom)</li>
+<li>TimestampAdded (<em>dateTime</em>): Um <em>timestamp</em> de quando o site foi adicionado na lista. Ele deve seguir o padrão do XML (que é YYYY-MM-DDTHH-MM-SS, com o Y sendo ano, M sendo mês, D sendo dia, H sendo hora, M sendo minuto, S sendo segundo).</li>
+</ul>
+<p>Você também pode adicionar mais tags e atributos na tag <code>Site</code>.</p>
+<h2 id="examples">Exemplos</h2>
+<p>Estes são alguns exemplos construídos para você baixar e examinar. Clique em um para ser redirecionado.</p>
+<ul>
+<li>Exemplo 1: <a href="/sl1682/v1/exmpl/1.xml" title="Arquivo XML">XML</a></li>
+</ul>
+<h2 id="reason-list">Lista de motivos (SLRC)</h2>
+<p>Aqui está toda a lista de motivos do SitesList. Chamamos de SLRC (SitesList Reason Codes)</p>
+<ul>
+<li>0 = Motivo não especificado</li>
+<li>1 = Site malicioso</li>
+<li>2 = Cessação da Operação</li>
+<li>3 = Derrubado por direitos autorais</li>
+<li>4 = Site suspenso</li>
+<li>5 = Substituido por outro dominio</li>
+<li>6 = Violação de lei</li>
+<li>7 = A Autoridade Certificadora revogou</li>
+<li>8 = Phishing</li>
+<li>9 = Fake News / desinformação</li>
+<li>10 = Conteúdo ilegal</li>
+<li>11 = Distribuição de malware ou vírus.</li>
+<li>12 = Conteúdo enganoso</li>
+<li>13 = Retirado por ordem judicial</li>
+<li>14 = Spam massivo</li>
+<li>15 = Servidor C2</li>
+<li>16 = Pirataria</li>
+<li>17 = Propaganda enganosa</li>
+<li>18 = Site clonado</li>
+<li>19 = Violação da LGPD, GDPR, PECR, CCPA, PIPEDA ou APPI</li>
+<li>20 = Outro</li>
+<li>21 = Não revogado. É válido.</li>
+</ul>
+
+</body></html>
