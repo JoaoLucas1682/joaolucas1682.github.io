@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-targetNamespace="https://joaolucas1682.github.io/sl1682/v1/spec/html"
-    xmlns="https://joaolucas1682.github.io/sl1682/v1/spec/html" 
+targetNamespace="https://joaolucas1682.github.io/sl1682/v1/doc/html"
+    xmlns="https://joaolucas1682.github.io/sl1682/v1/doc/html" 
 elementFormDefault="qualified">
 <xs:annotation>
   <xs:documentation>
